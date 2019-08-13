@@ -32,7 +32,7 @@ var acresBox = document.forms[0].acres;
 
 /* verify acres text box entry is a positive number */
 function verifyAcres() {
-   testFormCompleteness();      
+   testFormCompleteness();
 }
 
 /* verify at least one crops checkbox is checked */
@@ -65,7 +65,7 @@ function createRecommendation() {
          messageElement.innerHTML = "A workhorse for a small farm or a big backyard. A medium- to heavy-duty tractor that can haul whatever you throw at it year-round.";
       } else { // 9 or fewer months per year
          messageHeadElement.innerHTML = "E2600";
-         messageElement.innerHTML = "Perfect for a small farm, or just a big backyard. A light- to medium-duty tractor that can make short work of most any chore.";             
+         messageElement.innerHTML = "Perfect for a small farm, or just a big backyard. A light- to medium-duty tractor that can make short work of most any chore.";
       }
    } else { // more than 5000 acres
       if (monthsBox.value <= 9) { // 9 or fewer months per year, no crop test needed
@@ -86,7 +86,7 @@ function createRecommendation() {
    } else if (document.getElementById("biodiesel").checked) {
       messageHeadElement.innerHTML = "B";
    } else {
-      messageHeadElement.innerHTML += "D";  
+      messageHeadElement.innerHTML += "D";
    }
 }
 
@@ -96,36 +96,36 @@ function createEventListeners() {
    monthsBox.value = ""; // clear months text box on page load
 
    if (acresBox.addEventListener) {
-     acresBox.addEventListener("input", verifyAcres, false); 
-   } else if (acresBox.attachEvent)  {
-     acresBox.attachEvent("onchange", verifyAcres);
+      acresBox.addEventListener("input", verifyAcres, false);
+   } else if (acresBox.attachEvent) {
+      acresBox.attachEvent("onchange", verifyAcres);
    }
-   
+
    var cropsBox;
    for (var i = 0; i < 7; i++) {
       cropsBox = cropsFieldset.getElementsByTagName("input")[i];
-      cropsBox.checked = false;      
+      cropsBox.checked = false;
       if (cropsBox.addEventListener) {
-        cropsBox.addEventListener("click", verifyCrops, false); 
-      } else if (cropsBox.attachEvent)  {
-        cropsBox.attachEvent("onclick", verifyCrops);
+         cropsBox.addEventListener("click", verifyCrops, false);
+      } else if (cropsBox.attachEvent) {
+         cropsBox.attachEvent("onclick", verifyCrops);
       }
    }
-   
+
    if (monthsBox.addEventListener) {
-     monthsBox.addEventListener("input", verifyMonths, false); 
-   } else if (monthsBox.attachEvent)  {
-     monthsBox.attachEvent("onchange", verifyMonths);
+      monthsBox.addEventListener("input", verifyMonths, false);
+   } else if (monthsBox.attachEvent) {
+      monthsBox.attachEvent("onchange", verifyMonths);
    }
 
    var fuelBox;
    for (var i = 0; i < 3; i++) {
       fuelBox = fuelFieldset.getElementsByTagName("input")[i];
-      fuelBox.checked = false;      
+      fuelBox.checked = false;
       if (fuelBox.addEventListener) {
-        fuelBox.addEventListener("click", verifyFuel, false); 
-      } else if (fuelBox.attachEvent)  {
-        fuelBox.attachEvent("onclick", verifyFuel);
+         fuelBox.addEventListener("click", verifyFuel, false);
+      } else if (fuelBox.attachEvent) {
+         fuelBox.attachEvent("onclick", verifyFuel);
       }
    }
 }
