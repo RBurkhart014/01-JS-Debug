@@ -46,9 +46,6 @@ function verifyMonths() {
 }
 
 /* verify that a fuel option button is selected */
-
-brrakpoint
-
 function verifyFuel() {
    testFormCompleteness();
 }
