@@ -13,6 +13,18 @@
 /* global variables */
 var photoOrder = [1,2,3,4,5];
 
+
+function populateFigures() {
+   var filename;
+   var currentFig;
+   for (var i = 1; i < 4; i++) {
+      filename = "images/IMG_0" + photoOrder[i] + "sm.jpg";
+      currentFig = document.getElementsByTagName("img")[i - 1];
+      currentFig.src = filename;
+  }
+}
+
+
 /* shift all images one figure to the left, and change values in photoOrder array to match  */
 function rightArrow() {
    for (var i = 0; i < 5; i++) {
@@ -37,10 +49,64 @@ function leftArrow() {
    }
 }
 
+function previewFive() {
+   alert("previewFive() event handler");
+   var lastFigure = document.createElement("figure");
+    lastFigure.id = "fig5";
+    lastFigure.style.zIndex = "5";
+    lastFigure.style.position = "absolute";
+    lastFigure.style.right = "45px";
+    lastFigure.style.top = "67px";
+    var lastImage = document.createElement("img");
+    lastImage.width = "240";
+    lastImage.height = "135";
+}
+
+var showAllButton = document.querySelector("#fiveButton p");
+if (showAllButton.addEventListener) {
+    showAllButton.addEventListener("click", previewFive, false);
+} 
+else if (showAllButton.attachEvent) {
+    showAllButton.attachEvent("onclick", previewFive);
+}
+
 /* open center figure in separate window */
 function zoomFig() {
    
 }
+
+function createEventListeners() {
+   var leftarrow = document.getElementById("leftarrow");
+   if (leftarrow.addEventListener) {
+      leftarrow.addEventListener("click", leftArrow, false);
+  } else if (leftarrow.attachEvent) {
+      leftarrow.attachEvent("onclick", leftArrow);
+  }; 
+
+  var rightarrow = document.getElementById("leftarrow");
+   if (rightarrow.addEventListener) {
+      rightarrow.addEventListener("click", rightArrow, false);
+  } else if (rightarrow.attachEvent) {
+      rightarrow.attachEvent("onclick", rightArrow);
+  }; 
+
+  var mainFig = document.getElementsByTagName("img")[1];
+   
+
+    if (mainFig.addEventListener) {
+      mainFig.addEventListener("click", zoomFig, false);
+  }
+  else if (mainFig.attachEvent) {
+      mainFig.attachEvent("onclick", zoomFig);
+  }
+
+  function zoomFig() {
+   
+}
+  
+}
+
+
 
 /* create event listeners and populate image elements */
 function setUpPage() {
